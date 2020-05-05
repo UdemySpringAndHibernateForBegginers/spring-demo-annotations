@@ -14,6 +14,7 @@ public class AnnotationDemoApp {
         Coach firstCoach = context.getBean("tennisCoach", Coach.class);
         Coach secondCoach = context.getBean("baseballCoach", Coach.class);
         Coach thirdCoach = context.getBean("cricketCoach", Coach.class);
+        Coach fourthCoach = context.getBean("trackCoach", Coach.class);
 
         //call a method on the bean
         System.out.println();
@@ -25,6 +26,9 @@ public class AnnotationDemoApp {
         System.out.println();
         System.out.println(thirdCoach.getDailyWorkout());
         System.out.println(thirdCoach.getDailyFortune());
+        System.out.println();
+        System.out.println(fourthCoach.getDailyWorkout());
+        System.out.println(fourthCoach.getDailyFortune());
 
         //close the context
         context.close();
