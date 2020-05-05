@@ -1,5 +1,6 @@
-package com.luv2code.springdemo;
+package com.luv2code.springdemo.service;
 
+import com.luv2code.springdemo.service.FortuneService;
 import org.springframework.stereotype.Component;
 
 @Component
