@@ -2,6 +2,7 @@ package com.luv2code.springdemo;
 
 import com.luv2code.springdemo.service.FortuneService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,6 +18,7 @@ public class TennisCoach implements Coach {
 
     // == setters ==
     @Autowired
+    @Qualifier("databaseFortuneService")
     public void setService(FortuneService service) {
         this.service = service;
         System.out.println("TennisCoach -> inside setter named setService");
