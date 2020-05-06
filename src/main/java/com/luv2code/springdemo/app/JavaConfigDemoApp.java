@@ -3,7 +3,6 @@ package com.luv2code.springdemo.app;
 import com.luv2code.springdemo.Coach;
 import com.luv2code.springdemo.conf.SportConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class JavaConfigDemoApp {
 
