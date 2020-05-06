@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
-@Scope("prototype")
+@Scope("singleton")
 public class TennisCoach implements Coach {
 
     // == fields ==
@@ -24,6 +27,18 @@ public class TennisCoach implements Coach {
     public void setService(FortuneService service) {
         this.service = service;
         System.out.println("TennisCoach -> inside setter named setService");
+    }
+
+    // == init method ==
+    @PostConstruct
+    public void doMyStsrtupStuff() {
+        System.out.println("TennisCoach -> inside of @PostConstruct method");
+    }
+
+    // == init method ==
+    @PreDestroy
+    public void doMyCleanupStuff() {
+        System.out.println("TennisCoach -> inside of @PreDestroy method");
     }
 
     // == public methods
