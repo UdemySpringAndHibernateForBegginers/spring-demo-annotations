@@ -1,6 +1,7 @@
 package com.luv2code.springdemo;
 
 import com.luv2code.springdemo.service.FortuneService;
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -10,8 +11,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 @Component
-@Scope("singleton")
-public class TennisCoach implements Coach {
+@Scope("prototype")
+public class TennisCoach implements Coach, DisposableBean {
 
     // == fields ==
     private FortuneService service;
@@ -35,10 +36,16 @@ public class TennisCoach implements Coach {
         System.out.println("TennisCoach -> inside of @PostConstruct method");
     }
 
-    // == init method ==
+    // == destroy method ==
     @PreDestroy
     public void doMyCleanupStuff() {
         System.out.println("TennisCoach -> inside of @PreDestroy method");
+    }
+
+    // == destroy method when scope is prototype ==
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("TennisCoach -> inside destroy method for prototype bean");
     }
 
     // == public methods
@@ -51,4 +58,5 @@ public class TennisCoach implements Coach {
     public String getDailyFortune() {
         return service.getFortune();
     }
+
 }
